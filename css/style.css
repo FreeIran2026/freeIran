@@ -65,15 +65,42 @@ footer{ margin-top:14px; text-align:center; color: rgba(255,255,255,0.5); font-s
   transition: background 0.2s ease;
 }
 
-.nav-link:hover {
-  background: rgba(0, 123, 255, 1);
-}
-
 /* Checkmark for clicked links */
 .checkmark {
   color: green;
   margin-left: 10px;
   font-size: 18px;
+}
+
+/* Removed style */
+.removed {
+  position: relative;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.removed-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: bold;
+  color: red;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* New banner */
+.new-banner {
+  background: rgba(0, 123, 255, 0.8);
+  color: white;
+  text-align: left;
+  padding: 3px 5px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  width: fit-content;
+  animation: blink 1s infinite;
 }
 
 /* Navigation links */
@@ -91,4 +118,12 @@ footer{ margin-top:14px; text-align:center; color: rgba(255,255,255,0.5); font-s
 
 .nav-link:hover {
   background: rgba(0, 123, 255, 1);
+}
+
+/* Blue line after new banner */
+.blue-line {
+  border: none;
+  height: 2px;
+  background-color: rgba(0, 123, 255, 0.8);
+  margin: 10px 0;
 }

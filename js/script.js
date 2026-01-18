@@ -1,9 +1,9 @@
 // Funktion zum Hinzufügen von Report-Links
-function addReportLink(appName, url, username) {
+function addReportLink(appName, url, username, available = true,newLink = false) {
     // Icon-Mapping für verschiedene Apps
     const icons = {
         'Instagram': '📷',
-        'Twitter': 'X',
+        'X': 'X',
   
         // Füge mehr hinzu, falls nötig
     };
@@ -13,18 +13,25 @@ function addReportLink(appName, url, username) {
 
     // HTML für den Link generieren
     const linkHtml = `
-        <a class="btn" href="${url}" target="_blank" onclick="showCheckmark(this); return false;">
-          <div class="left">
-            <div class="icon">${icon}</div>
-            <div>
-              <div class="label">${appName}</div>
-              <div class="value">${username}</div>
-            </div>
-          </div>
-          <div class="arrow">›</div>
-        </a>
-        <span class="checkmark" style="display:none;">✔️</span>
+        <div class="link-container ${available ? '' : 'removed'}">
+            <a class="btn" href="${url}" target="_blank" onclick="showCheckmark(this); return false;">
+              <div class="left">
+                <div class="icon">${icon}</div>
+                <div>
+                  <div class="label">${appName}</div>
+                  <div class="value">${username}</div>
+                </div>
+              </div>
+              <div class="arrow">›</div>
+            </a>
+            <span class="checkmark" style="display:none;">✔️</span>
+            ${available ? '' : '<div class="removed-text">REMOVED</div>'}
+        </div>
+    ${newLink ? ' <hr class="blue-line">' : ''}
+      
+
     `;
+     
 
     // Link zur .links-Div hinzufügen
     const linksContainer = document.getElementById('links');
